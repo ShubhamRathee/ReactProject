@@ -1,0 +1,18 @@
+// IIFE with jQuery Wrapper
+(function ($) {
+  "use strict";
+	
+//   document.getElementById("post-2579").onclick = function() {
+//    var link = document.getElementById("abc");
+//    link.setAttribute("href", "xyz.php");
+//    return false;
+//    }
+  //alert(123);
+$('#post-2579 a').attr("href", "https://patch.com/florida/newportrichey/hunger-network-pasco-county-partner-prevent-food-waste");
+$('#post-2578 a').attr("href", "https://www.flysfo.com/media/press-releases/airport-launches-%E2%80%9Csfo-unites-against-hunger%E2%80%9D-food-donation-program");
+$('#post-2577 a').attr("href", "https://www.sanjoseinside.com/news/mobile-app-aims-to-end-hunger-food-waste-in-silicon-valley");
+$('.ht-container-p a:not(:last)').attr("target","_blank");
+$('.header-btn a').attr("target","_blank");
+}(jQuery));
+
+   

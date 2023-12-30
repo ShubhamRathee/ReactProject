@@ -1,0 +1,72 @@
+(function ($) {
+"use strict";
+
+    $(window).on('load', function () {
+        preloader();
+    });
+
+    function preloader() {
+        $('#preloader').delay(0).fadeOut();
+    };
+
+    // offcanvas menu
+    $(".menu-tigger").on("click", function () {
+        $(".offcanvas-menu,.offcanvas-overly").addClass("active");
+        return false;
+    });
+    $(".menu-close,.offcanvas-overly").on("click", function () {
+        $(".offcanvas-menu,.offcanvas-overly").removeClass("active");
+    });
+    
+    // donate input field enable
+    $('#dgx-donate-pay-enabled input').removeAttr('src');
+    $('#dgx-donate-pay-enabled').find('input:image').attr({type:"submit"});
+
+    $('.countdown').each(function(){
+
+        var date = $(this).data('date'),
+            labels = eval($(this).data('labels'));
+
+        $(this).countdown(date, function(event) {
+            var format = '<span class="time">%H:%M:%S</span>';
+            if(event.offset.days > 0) {
+            format = '<span class="days">%-d <span>' + labels[1] + '</span></span> ' + format;
+                }
+            if(event.offset.weeks > 0) {
+            format = '<span class="weeks">%-w <span>' + labels[0] + '</span></span> ' + format;
+                }
+            $(this).html(event.strftime(format));
+        });
+
+    });
+
+
+    $('[data-countdown]').each(function() {
+      var $this = $(this), finalDate = $(this).data('countdown');
+      $this.countdown(finalDate, function(event) {
+        $this.html(event.strftime('%D Days'));
+      });
+    });
+
+
+    // Dustrial with jQuery Wrapper
+    jQuery(document).ready(function(){  
+        //fade in/out based on scrollTop value
+        jQuery(window).scroll(function () {
+            if (jQuery(this).scrollTop() > 0) {
+                jQuery('#scroller').fadeIn();
+            } else {
+                jQuery('#scroller').fadeOut();
+            }
+        });
+     
+        // scroll body to 0px on click
+        jQuery('#scroller').click(function () {
+            jQuery('body,html').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        });
+    });
+
+})(jQuery);

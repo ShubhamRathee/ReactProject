@@ -1,0 +1,31 @@
+( function( $ ) {  
+    /**
+   * @param $scope The Widget wrapper element as a jQuery element
+   * @param $ The jQuery alias
+   */ 
+    var causetimer = function( $scope, $ ) {
+     // Case Study Carousel
+    function Cause_Countdown(){
+        $('[data-countdown]').each(function() {
+          var $this = $(this), finalDate = $(this).data('countdown');
+          $this.countdown(finalDate, function(event) {
+            $this.html(event.strftime('%D Days'));
+          });
+        });
+    }
+    Cause_Countdown();
+
+    // // active
+    $('.single-services').on('mouseenter', function () {
+      $(this).addClass('active').parent().siblings().find('.single-services').removeClass('active');
+    })
+    
+    //end
+ };
+  
+  // Make sure you run this code under Elementor.
+  $( window ).on( 'elementor/frontend/init', function() {
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/section-cause.default', causetimer );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/image-box-item.default', causetimer );
+  } );
+})( jQuery );

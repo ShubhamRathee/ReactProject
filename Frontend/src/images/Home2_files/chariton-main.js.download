@@ -1,0 +1,112 @@
+(function ($) {
+"use strict";
+
+$(window).on('load', function () {
+	wowanimation();
+	textanimation();
+});
+
+// meanmenu
+$('#mobile-menu').meanmenu({
+	meanMenuContainer: '.mobile-menu',
+	meanScreenWidth: "991",
+	meanMenuOpen:"<span></span><span></span><span></span>",
+});
+
+
+// sticky
+$(window).on('scroll', function () {
+	var scroll = $(window).scrollTop();
+	if (scroll < 245) {
+		$("#header-sticky").removeClass("sticky-menu");
+		$(".stricky-height-fix").removeClass("menufix-height ");
+	} else {
+		$("#header-sticky").addClass("sticky-menu");
+		$(".stricky-height-fix").addClass("menufix-height ");
+	}
+});
+
+
+// data - background
+$("[data-background]").each(function () {
+	$(this).css("background-image", "url(" + $(this).attr("data-background") + ")")
+})
+
+
+// blog
+$('.blog-thumb-active').slick({
+	dots: false,
+	infinite: true,
+	arrows: true,
+	speed: 1500,
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	fade: true,
+	prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-arrow-left"></i></button>',
+	nextArrow: '<button type="button" class="slick-next"><i class="fas fa-arrow-right"></i></button>',
+});
+
+
+// Textillate
+function textanimation() {
+	$('.tlt').textillate({
+		in: {
+			delayScale: 4,
+			delay: 50,
+			callback: function () {}
+		},
+	});
+}
+
+// counterUp
+$('.count').counterUp({
+	delay: 10,
+	time: 2000
+});
+
+
+/* magnificPopup img view */
+$('.chariton-popup-image').magnificPopup({
+	type: 'image',
+	gallery: {
+	  enabled: true
+	},
+	zoom: {
+		enabled: true,
+		duration: 500,
+		easing: 'ease-in-out',
+	}
+});
+
+/* magnificPopup video view */
+$('.popup-video').magnificPopup({
+	type: 'iframe'
+});
+
+//for menu active class
+$('.causes-menu button,.events-menu button').on('click', function(event) {
+	$(this).siblings('.active').removeClass('active');
+	$(this).addClass('active');
+	event.preventDefault();
+});
+
+
+// aos-active
+AOS.init({
+	duration: 1000,
+	mirror: true
+});
+
+// WOW active
+function wowanimation() {
+	var wow = new WOW({
+		boxClass: 'wow',
+		animateClass: 'animated',
+		offset: 0,
+		mobile: false,
+		live: true
+	});
+	wow.init();
+}
+
+})(jQuery);

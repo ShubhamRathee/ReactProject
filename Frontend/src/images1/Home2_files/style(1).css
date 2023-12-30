@@ -1,0 +1,46 @@
+/* ===================================================================================
+
+* Theme Name: Chariton Child
+* Theme URI: https://themeforest.net/user/johanspond
+* Description: Chariton - Non-Profit Charity WordPress Theme.
+* Version: 1.0.0
+* Author: Johanspond
+* Author URI: http://pluginspoint.com/
+* Template: chariton
+* License: GNU General Public License version 3.0
+* License URI: http://www.gnu.org/licenses/gpl-3.0.html
+* Tags: one-column, right-sidebar, left-sidebar, custom-menu, featured-images, post-formats, sticky-post, translation-ready
+
+* We encourage you to create Child theme for any modifications you will want to do.
+
+* Why use Child theme?
+
+* Because of future updates we may provide for this theme that will overwrite your
+* modifications and all your custom work.
+
+* If you are not familiar with Child Themes, you can read about it here:
+* http://codex.wordpress.org/Child_Themes
+* http://wp.tutsplus.com/tutorials/theme-development/child-themes-basics-and-creating-child-themes-in-wordpress/
+
+====================================================================================== */
+/* .elementor-746 .elementor-element.elementor-element-78dd189 .section-title > span{
+	border-radius: 10px;
+} */
+footer ul li:before{
+	content:none!important;
+}
+footer ul li{
+	padding-left:0!important;
+}
+.footer-last-widget .widget_pages{
+	padding-left:80px!important;
+}
+.features-content a{
+	display:none;
+}
+
+@media(min-width: 1200px) and (max-width: 1500px){
+.s-logo img {
+    width: 300px!important;
+}
+}
